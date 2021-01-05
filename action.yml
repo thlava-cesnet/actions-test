@@ -28,5 +28,10 @@ runs:
         echo "step3/comm2"
         echo 'github.action: ${{ github.action }}'
         echo 'github.action_path: ${{ github.action_path }}'
-        echo 'github context: ${{ github }}'
+        echo 'github.event: ${{ github.event }}'
+        echo 'github.event_path: ${{ github.event_path }}'
+        echo 'github.job: ${{ github.job }}'
+        echo 'github.repository: ${{ github.repository }}'
+        echo 'github.workflow: ${{ github.workflow }}'
+        echo 'github.workspace: ${{ github.workspace }}'
       shell: bash
