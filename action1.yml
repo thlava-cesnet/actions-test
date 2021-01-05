@@ -1,0 +1,26 @@
+name: 'action-test action1'
+description: 'action-test action1 description'
+inputs:
+  input1:
+    description: 'input1 description'
+    required: false
+    default: 'INPUT1'
+outputs:
+  output1:
+    description: 'output1 description'
+    value: 'action1: ${{ inputs.input1 }}; ${{ steps.random-number-generator.outputs.random-id }}'
+runs:
+  using: 'composite'
+  steps:
+    - name: 'action-test action1 step1'
+      run: |
+        echo "step1/comm1"
+        echo "step1/comm2"
+    - name: 'action-test action1 step2'
+      id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
+    - name: 'action-test action1 step3'
+      run: |
+        echo "step3/comm1"
+        echo "step3/comm2"
