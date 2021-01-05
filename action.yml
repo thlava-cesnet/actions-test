@@ -24,5 +24,6 @@ runs:
     - name: 'action-test action1 step3'
       run: |
         echo "step3/comm1"
+        ${{ github.action_path }}/script1.sh
         echo "step3/comm2"
       shell: bash
