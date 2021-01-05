@@ -24,7 +24,7 @@ runs:
     - name: 'action-test action1 step3'
       run: |
         echo "step3/comm1"
-        ${{ github.action_path }}/script1.sh
+        ${{ github.action_path }}/script1.sh '${{ github.workspace }}'
         echo 'github.action: ${{ github.action }}'
         echo 'github.action_path: ${{ github.action_path }}'
         echo 'github.event_name: ${{ github.event_name }}'
