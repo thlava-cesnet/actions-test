@@ -16,6 +16,7 @@ runs:
       run: |
         echo "step1/comm1"
         echo "step1/comm2"
+      shell: bash
     - name: 'action-test action1 step2'
       id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
@@ -24,3 +25,4 @@ runs:
       run: |
         echo "step3/comm1"
         echo "step3/comm2"
+      shell: bash
