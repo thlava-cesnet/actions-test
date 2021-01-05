@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: actions-test_wf1
+
+on:
+  push:
+    branches: [ master ]
+    paths: [ 'af-wf1-trig.txt' ]
+#  pull_request:
+#    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a set of commands using the runners shell
+    - name: Run a multi-line script
+      run: |
+        echo 'Job status: ${{ job.status }}'
+        echo 'GITHUB_WORKSPACE:  (${{ env.GITHUB_WORKSPACE }})'
+        #echo "::set-env name=NEWTAG::$(date '+%y%m%d-%H%M%S')"
+        echo "NEWTAG=$(date '+%y%m%d-%H%M%S')" >> $GITHUB_ENV
+        echo 'NEWTAG: ${{ env.NEWTAG }}'
+    - name: Success test step
+      run: |
+        echo "Success test (NEWTAG: ${{ env.NEWTAG }})"
+      if: success()
+      
