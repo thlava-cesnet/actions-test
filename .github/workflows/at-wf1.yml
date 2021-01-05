@@ -24,7 +24,8 @@ jobs:
         echo 'GITHUB_WORKSPACE:  (${{ env.GITHUB_WORKSPACE }})'
         #echo "::set-env name=NEWTAG::$(date '+%y%m%d-%H%M%S')"
         echo "NEWTAG=$(date '+%y%m%d-%H%M%S')" >> $GITHUB_ENV
-        echo 'NEWTAG: ${{ env.NEWTAG }}'
+        echo "NEWTAG: $NEWTAG"
+        echo 'env.NEWTAG: ${{ env.NEWTAG }}'
     - name: Success test step
       run: |
         echo "Success test (NEWTAG: ${{ env.NEWTAG }})"
