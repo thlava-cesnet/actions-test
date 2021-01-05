@@ -32,9 +32,9 @@ runs:
         echo 'github.repository: ${{ github.repository }}'
         echo 'github.workflow: ${{ github.workflow }}'
         echo 'github.workspace: ${{ github.workspace }}'
-        echo 'github.event_path cat:'
-        cat '${{ github.event_path }}'
+        #echo 'github.event_path cat:'
+        #cat '${{ github.event_path }}'
         echo 'github.action_path ls:'
-        ls -l '${{ github.action_path }}'
+        ls -la '${{ github.action_path }}'
         echo 'step3 done.'
       shell: bash
