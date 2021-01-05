@@ -21,11 +21,10 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo 'Job status: ${{ job.status }}'
-        echo 'GITHUB_WORKSPACE:  (${{ env.GITHUB_WORKSPACE }})'
-        #echo "::set-env name=NEWTAG::$(date '+%y%m%d-%H%M%S')"
         echo "NEWTAG=$(date '+%y%m%d-%H%M%S')" >> $GITHUB_ENV
-        echo "NEWTAG: $NEWTAG"
-        echo 'env.NEWTAG: ${{ env.NEWTAG }}'
+        echo "::set-env name=NEWTAG2::$(date '+%y%m%d-%H%M%S')"
+        echo "NEWTAG2: $NEWTAG2"
+        echo 'env.NEWTAG2: ${{ env.NEWTAG2 }}'
     - name: Success test step
       run: |
         echo "Success test (NEWTAG: ${{ env.NEWTAG }})"
