@@ -14,6 +14,7 @@ runs:
   steps:
     - name: 'action-test action1 step1'
       run: |
+        echo "step1 $(date '+%y%m%d-%H%M%S')"
         echo "step1/comm1"
         echo "step1/comm2"
       shell: bash

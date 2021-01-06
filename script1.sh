@@ -7,7 +7,7 @@ pwd
 ls -la
 
 echo ""
-echo "$WSP:"
+echo "WSP $WSP:"
 ls -la "$WSP"
 
 echo ""
