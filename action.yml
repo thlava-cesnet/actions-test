@@ -21,7 +21,7 @@ runs:
     - name: 'action-test action1 step2'
       id: step2
       run: |
-        echo "out1=$(date '+%y%m%d-%H%M%S')" >> $GITHUB_ENV
+        echo "out1=${{ inputs.input1 }}..$(date '+%y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
       shell: bash
     - name: 'action-test action1 step3'
       run: |
