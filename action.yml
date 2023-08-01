@@ -8,7 +8,7 @@ inputs:
 outputs:
   output1:
     description: 'output1 description'
-    value: 'action1: ${{ inputs.input1 }}; ${{ steps.random-number-generator.outputs.random-id }}'
+    value: 'action1: ${{ inputs.input1 }}; ${{ steps.step2.outputs.out1 }}'
 runs:
   using: 'composite'
   steps:
@@ -19,8 +19,9 @@ runs:
         echo "step1/comm2"
       shell: bash
     - name: 'action-test action1 step2'
-      id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      id: step2
+      run: |
+        echo "out1=$(date '+%y%m%d-%H%M%S')" >> $GITHUB_ENV
       shell: bash
     - name: 'action-test action1 step3'
       run: |
